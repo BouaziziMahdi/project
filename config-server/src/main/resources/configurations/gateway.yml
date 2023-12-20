@@ -1,0 +1,26 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8222
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: authentification
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/v1/auth/**
+        - id: category
+          uri: http://localhost:8070
+          predicates:
+            - Path=/api/v1/category/**
+        - id: contact
+          uri: http://localhost:8060
+          predicates:
+            - Path=/api/v1/mail/**

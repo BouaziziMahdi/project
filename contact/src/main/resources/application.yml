@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/contact
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  application:
+    name: mail
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: testlibrary05@gmail.com
+    password: ctafgykbzriltxvu
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+
+  config:
+    import: optional:configserver:http://localhost:8888
